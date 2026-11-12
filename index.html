@@ -63,13 +63,6 @@ h2{
   text-transform:uppercase;
   line-height:1.2;
 }
-.h-decor{position:relative;display:inline-block;padding:0 12px}
-.h-decor::before,.h-decor::after{
-  content:"";position:absolute;height:1px;width:52px;
-  background:var(--black);top:50%;transform:translateY(-50%);
-}
-.h-decor::before{left:-56px}
-.h-decor::after{right:-56px}
 
 /* === ОСТАЛЬНОЕ — Montserrat === */
 .sub,.invite-text,.cal-grid,.cal-grid span,.timer,.timer .num,.timer .lbl,
@@ -81,7 +74,76 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- COVER (обновлённый) ---------- */
+/* ---------- ПОЛОСОЧКИ ДЛЯ ТЕКСТА (ДЕКОР) ---------- */
+.decor-text {
+  position: relative;
+  display: inline-block;
+  padding: 15px 0;
+}
+.decor-text::before,
+.decor-text::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.5px;
+  width: 100%;
+  max-width: 300px;
+  background-color: currentColor;
+}
+.decor-text::before { top: 0; }
+.decor-text::after { bottom: 0; }
+
+/* Для заголовков внутри секций */
+h2 .decor-text { padding: 12px 0; }
+h2 .decor-text::before, h2 .decor-text::after { max-width: 180px; }
+
+/* Для обложки */
+.cover-text-wrap {
+  display: inline-block;
+  position: relative;
+  padding: 15px 0;
+}
+.cover-text-wrap::before,
+.cover-text-wrap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.5px;
+  width: 100%;
+  max-width: 280px;
+  background-color: #efe9df;
+}
+.cover-text-wrap::before { top: 0; }
+.cover-text-wrap::after { bottom: 0; }
+
+/* Для текста приглашения */
+.invite-text p {
+  display: inline-block;
+  position: relative;
+  padding: 15px 0;
+}
+.invite-text p::before,
+.invite-text p::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--black);
+}
+.invite-text p::before { top: 0; }
+.invite-text p::after { bottom: 0; }
+
+/* Для деталей */
+.details-content p.decor-text {
+  display: block;
+}
+
+/* ---------- COVER ---------- */
 .cover{
   position:fixed;inset:0;z-index:100;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
@@ -89,7 +151,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   cursor:pointer;
   transition:opacity .9s ease,visibility .9s;
   overflow:hidden;
-  /* Красивый коричневый градиент вместо фото */
   background: linear-gradient(135deg, #2c1e14 0%, #4a3423 40%, #1f150e 100%);
 }
 .cover::before{
@@ -113,7 +174,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .cover.hidden{opacity:0;visibility:hidden}
 
-/* Шрифт обложки — как у обычного текста (Montserrat) */
 .cover p{
   position:relative;z-index:2;
   color:#efe9df;
@@ -127,25 +187,28 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   text-shadow:0 2px 14px rgba(0,0,0,.5);
 }
 
-.logo-wrap{
+/* Кнопка в центре обложки с сердцем */
+.cover-heart-btn {
   position:relative;z-index:2;
-  width:150px;height:150px;
-  background:rgba(28,20,16,.6);
-  border:1px solid rgba(255,255,255,.14);
+  width:120px;
+  height:120px;
+  background:rgba(28,20,16,.5);
+  border:1px solid rgba(255,255,255,.2);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 12px 40px rgba(0,0,0,.4);
   animation:pulse 2.6s ease-in-out infinite;
 }
+.cover-heart-btn svg {
+  width:50px;
+  height:50px;
+  fill: none;
+  stroke: #efe9df;
+  stroke-width: 1.5;
+}
 @keyframes pulse{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.03)}
-}
-
-.logo-wrap img{
-  width:100px;
-  height:100px;
-  object-fit:contain;
+  50%{transform:scale(1.05)}
 }
 
 /* ---------- HERO ---------- */
@@ -195,6 +258,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   animation:fadeUp 1.2s ease .75s forwards;
 }
 .hero-title b{font-weight:400;font-style:normal;display:inline}
+.hero-title .decor-text::before, .hero-title .decor-text::after { background-color: #fdfaf4; max-width: 250px; }
 
 .timer{
   display:flex;
@@ -255,6 +319,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:clamp(30px,5.5vw,42px);font-weight:400;
   margin:48px 0 32px;letter-spacing:.08em;
 }
+.date-big .decor-text::before, .date-big .decor-text::after { max-width: 200px; }
+
 .calendar{
   max-width:400px;margin:0 auto;border:1px solid var(--black);
   padding:26px 30px;background:var(--white);
@@ -271,12 +337,33 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .cal-grid .wd{font-size:10px;letter-spacing:.16em;color:var(--grey);text-transform:uppercase;font-weight:500}
 .cal-grid .out{color:#c9c4bc}
+
+/* Сердце в календаре */
 .cal-grid .heart{
-  border:1.5px solid var(--black);border-radius:50% 50% 50% 0;
-  transform:rotate(-45deg);width:36px;height:36px;margin:0 auto;
+  position: relative;
+  width:36px;height:36px;margin:0 auto;
+  display: flex; align-items: center; justify-content: center;
   color:var(--black);font-weight:500;font-family:var(--sans);
+  /* Пульсация */
+  animation: heartPulse 2s infinite ease-in-out;
 }
-.cal-grid .heart i{transform:rotate(45deg);font-style:normal;display:block}
+.cal-grid .heart svg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 1.2;
+  pointer-events: none;
+}
+.cal-grid .heart i { position: relative; z-index: 2; font-style: normal; display: block; margin-top: -2px;}
+
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 
 /* ---------- PROGRAM ---------- */
 .program{background:var(--white)}
@@ -284,6 +371,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .p-item .time{font-size:30px;font-weight:400;letter-spacing:.1em}
 .p-item h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:8px 0 10px;letter-spacing:.06em}
 .p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
+.p-item p.decor-text::before, .p-item p.decor-text::after { max-width: 250px; }
 .p-icon{
   width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -315,6 +403,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .dc-frame h2{margin-bottom:20px}
 .dc-frame p{font-family:var(--sans);font-size:16px;line-height:1.8;color:#4d4d4d}
+.dc-frame p.decor-text::before, .dc-frame p.decor-text::after { max-width: 200px; }
 
 /* ---------- DETAILS ---------- */
 .details{background:var(--off)}
@@ -354,6 +443,7 @@ footer .f-title{
   text-shadow:0 2px 18px rgba(0,0,0,.6);
   line-height:1.15;
 }
+footer .f-title .decor-text::before, footer .f-title .decor-text::after { background-color: #fdfaf4; max-width: 200px; }
 footer .f-names{
   font-family:var(--sans);font-size:12px;letter-spacing:.4em;
   text-transform:uppercase;color:#efe7da;
@@ -421,19 +511,22 @@ footer .f-logo{
   .timer .unit{width:60px;height:60px}
   .timer .num{font-size:18px}
   .timer .lbl{font-size:7px;letter-spacing:.22em}
-  .h-decor::before,.h-decor::after{display:none}
   .calendar{padding:20px 22px}
   .dc-frame{padding:36px 22px}
   .btn{padding:14px 28px;font-size:10px}
   footer .f-logo{width:110px;bottom:36px}
 
   .cover{gap:44px}
-  .logo-wrap{width:120px;height:120px}
-  .logo-wrap img{width:80px;height:80px}
+  .cover-heart-btn{width:100px;height:100px}
+  .cover-heart-btn svg{width:40px;height:40px}
   .cover p{font-size:12px;letter-spacing:.2em}
   
   .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
   .music-btn svg { width: 24px; height: 24px; }
+
+  .decor-text::before, .decor-text::after,
+  .cover-text-wrap::before, .cover-text-wrap::after,
+  .invite-text p::before, .invite-text p::after { max-width: 90%; }
 }
 </style>
 <base target="_blank">
@@ -457,18 +550,21 @@ footer .f-logo{
 <!-- Скрытый YouTube плеер -->
 <div id="youtube-player" style="display:none;"></div>
 
-<!-- Обложка (без фото, коричневый фон, шрифт Montserrat) -->
+<!-- Обложка -->
 <div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
-  <p>Нажмите, чтобы открыть<br>приглашение</p>
-  <div class="logo-wrap">
-    <img src="images/logo.png" alt="Nazan Dance" onerror="this.style.display='none'">
+  <p class="cover-text-wrap">Нажмите, чтобы открыть<br>приглашение</p>
+  <div class="cover-heart-btn">
+    <!-- Красивое сердце -->
+    <svg viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
   </div>
 </div>
 
 <!-- Главный экран -->
 <header class="hero">
   <div class="hero-center">
-    <h1 class="hero-title">Ваагн & Кристина</h1>
+    <h1 class="hero-title"><span class="decor-text">Ваагн & Кристина</span></h1>
   </div>
 
   <div class="timer">
@@ -482,21 +578,24 @@ footer .f-logo{
 <!-- Приглашение -->
 <section class="reveal">
   <div class="container">
-    <h2><span class="h-decor">Дорогие гости!</span></h2>
+    <h2><span class="decor-text">Дорогие гости!</span></h2>
     <div class="invite-text">
-      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни. Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
+      <p class="decor-text">Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни.<br>Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
     </div>
-    <p class="date-big">18 декабря 2026 года</p>
+    <p class="date-big"><span class="decor-text">18 декабря 2026 года</span></p>
     <div class="calendar">
       <div class="cal-head"><span>Декабрь</span><span>2026</span></div>
       <div class="cal-grid">
         <span class="wd">Пн</span><span class="wd">Вт</span><span class="wd">Ср</span><span class="wd">Чт</span><span class="wd">Пт</span><span class="wd">Сб</span><span class="wd">Вс</span>
-        <!-- Декабрь 2026: 1 декабря - вторник -->
         <span class="out">30</span>
         <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
         <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
         <span>14</span><span>15</span><span>16</span><span>17</span>
-        <span class="heart"><i>18</i></span>
+        <!-- Обведено сердечком -->
+        <span class="heart">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <i>18</i>
+        </span>
         <span>19</span><span>20</span>
         <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
         <span>28</span><span>29</span><span>30</span><span>31</span>
@@ -509,11 +608,11 @@ footer .f-logo{
 <!-- Программа -->
 <section class="program reveal">
   <div class="container">
-    <h2><span class="h-decor">Программа дня</span></h2>
+    <h2><span class="decor-text">Программа дня</span></h2>
     <div class="p-item">
       <div class="time">17.00</div>
       <h3>Сбор гостей</h3>
-      <p>Встречаемся, знакомимся, общаемся и настраиваемся на наш особенный вечер. Будем рады разделить первые тёплые моменты этого дня вместе с вами.</p>
+      <p class="decor-text">Встречаемся, знакомимся, общаемся и настраиваемся на наш особенный вечер. Будем рады разделить первые тёплые моменты этого дня вместе с вами.</p>
       <div class="p-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
       </div>
@@ -521,7 +620,7 @@ footer .f-logo{
     <div class="p-item">
       <div class="time">18.00</div>
       <h3>Начало мероприятия</h3>
-      <p>Начинаем наш праздник! Концертная программа, наполненная любовью, улыбками и счастливыми моментами.</p>
+      <p class="decor-text">Начинаем наш праздник! Концертная программа, наполненная любовью, улыбками и счастливыми моментами.</p>
       <div class="p-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20.5C7 16.5 3 13.3 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 4-4 7.2-9 11.2z"/></svg>
       </div>
@@ -532,12 +631,10 @@ footer .f-logo{
 <!-- Место проведения -->
 <section class="place reveal">
   <div class="container">
-    <h2><span class="h-decor">Место проведения</span></h2>
+    <h2><span class="decor-text">Место проведения</span></h2>
     <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
-    <!-- Карта указывает на Mar House (координаты из ссылки) -->
     <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.865%2C55.795&z=15&pt=37.865%2C55.795%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
     <div class="place-card">
-      <!-- Маршрут ведёт на организацию Mar House -->
       <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
     </div>
   </div>
@@ -552,8 +649,8 @@ footer .f-logo{
 <section class="reveal">
   <div class="container">
     <div class="dc-frame">
-      <h2><span class="h-decor">Dress code</span></h2>
-      <p>Дресс-код — свободный, поэтому выбирайте наряд, в котором вам будет комфортно и красиво.</p>
+      <h2><span class="decor-text">Dress code</span></h2>
+      <p class="decor-text">Дресс-код — свободный, поэтому выбирайте наряд, в котором вам будет комфортно и красиво.</p>
     </div>
   </div>
 </section>
@@ -566,9 +663,9 @@ footer .f-logo{
 <!-- Детали -->
 <section class="details reveal">
   <div class="container">
-    <h2><span class="h-decor">Детали</span></h2>
+    <h2><span class="decor-text">Детали</span></h2>
     <div class="details-content">
-      <p>Если у Вас возникнут вопросы по месту проведения, таймингу или любым организационным моментам, Вы можете обратиться напрямую:</p>
+      <p class="decor-text">Если у Вас возникнут вопросы по месту проведения, таймингу или любым организационным моментам, Вы можете обратиться напрямую:</p>
       <a href="tel:+79670055536" class="phone-link">+7 967 005-55-36</a>
     </div>
   </div>
@@ -576,7 +673,7 @@ footer .f-logo{
 
 <footer>
   <div class="ph-hero">
-    <div class="f-title">Будем рады<br>видеть вас!</div>
+    <div class="f-title"><span class="decor-text">Будем рады<br>видеть вас!</span></div>
     <div class="f-names">Ваагн & Кристина</div>
   </div>
 </footer>
@@ -612,8 +709,6 @@ function onYouTubeIframeAPIReady() {
     events: {
       'onReady': (event) => {
         event.target.setVolume(50);
-        // Пытаемся включить музыку сразу (может не сработать до клика)
-        // Включаем при клике на обложку
       },
       'onStateChange': (event) => {
         if (event.data === YT.PlayerState.PLAYING) {
@@ -646,7 +741,7 @@ musicBtn.addEventListener('click', () => {
 const cover = document.getElementById('cover');
 cover.addEventListener('click', () => {
   cover.classList.add('hidden');
-  // Запуск музыки после действия пользователя
+  // Принудительный запуск музыки после действия пользователя
   if (player && typeof player.playVideo === 'function') {
     player.playVideo();
   }
