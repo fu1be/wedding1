@@ -28,7 +28,7 @@
   --grey:#7d7d7d;
   --line:#e3ded6;
   --sans:'Montserrat',Arial,sans-serif;
-  --serif:'Felidae',Georgia,serif; /* Заменил MAK на Felidae */
+  --serif:'Felidae',Georgia,serif; 
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,7 +46,7 @@ img{max-width:100%;display:block}
 section{padding:100px 24px;text-align:center}
 .container{max-width:880px;margin:0 auto}
 
-/* === ЗАГОЛОВКИ — Felidae === */
+/* === ЗАГОЛОВКИ — Felidae (Сделаны толще) === */
 h1, h2, h3,
 .hero-title,
 .date-big,
@@ -55,7 +55,8 @@ h1, h2, h3,
 .p-item .time,
 .place-card h3 {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 600; /* Утолщение */
+  -webkit-text-stroke: 0.5px currentColor; /* Дополнительное утолщение для тонких шрифтов */
 }
 h2{
   font-size:clamp(30px,5.5vw,46px);
@@ -74,7 +75,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ (Как на примере) ---------- */
+/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ ---------- */
 .section-title {
   position: relative;
   display: inline-block;
@@ -84,7 +85,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .section-title::after {
   content: "";
   position: absolute;
-  height: 1.5px;
+  height: 1.5px; /* Одинаковая толщина везде */
   background-color: var(--black);
   width: 60%; /* Длина полосочек */
 }
@@ -200,7 +201,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 
 .hero-title{
   font-family:var(--serif);
-  font-weight:400;
+  font-weight:600; 
+  -webkit-text-stroke: 0.5px currentColor;
   font-size:clamp(38px,9vw,86px);
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -213,7 +215,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   opacity:0;
   animation:fadeUp 1.2s ease .75s forwards;
 }
-.hero-title b{font-weight:400;font-style:normal;display:inline}
 
 .timer{
   display:flex;
@@ -271,7 +272,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   margin-bottom:18px;line-height:1.3;
 }
 .date-big{
-  font-size:clamp(30px,5.5vw,42px);font-weight:400;
+  font-size:clamp(30px,5.5vw,42px);font-weight:600;
+  -webkit-text-stroke: 0.5px currentColor;
   margin:48px 0 32px;letter-spacing:.08em;
 }
 .calendar{
@@ -281,7 +283,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .calendar .cal-head{
   display:flex;justify-content:space-between;
   font-size:18px;letter-spacing:.3em;text-transform:uppercase;
-  margin-bottom:18px;font-weight:400;
+  margin-bottom:18px;font-weight:600;
+  -webkit-text-stroke: 0.5px currentColor;
 }
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px 0;font-family:var(--sans)}
 .cal-grid span{
@@ -317,19 +320,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   100% { transform: scale(1); }
 }
 
-/* ---------- PROGRAM ---------- */
-.program{background:var(--white)}
-.p-item{max-width:500px;margin:48px auto 0}
-.p-item .time{font-size:30px;font-weight:400;letter-spacing:.1em}
-.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:8px 0 10px;letter-spacing:.06em}
-.p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
-.p-icon{
-  width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:32px auto 0;color:var(--black);
-}
-.p-icon svg{width:38px;height:38px}
-
 /* ---------- PLACE ---------- */
 .place{background:var(--white)}
 .map-frame{
@@ -337,7 +327,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   margin-top:38px;filter:grayscale(.25);
 }
 .place-card{margin-top:30px}
-.place-card h3{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:.06em}
+.place-card h3{font-family:var(--serif);font-size:30px;font-weight:600; -webkit-text-stroke: 0.5px currentColor; letter-spacing:.06em}
 .place-card .addr{font-family:var(--sans);color:#4d4d4d;margin:8px 0 24px;font-size:16px;line-height:1.8}
 .btn{
   display:inline-block;padding:16px 38px;background:var(--black);color:var(--white);
@@ -346,6 +336,19 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   border:1px solid var(--black);cursor:pointer;font-weight:500;
 }
 .btn:hover{background:transparent;color:var(--black)}
+
+/* ---------- PROGRAM ---------- */
+.program{background:var(--white)}
+.p-item{max-width:500px;margin:48px auto 0}
+.p-item .time{font-size:30px;font-weight:600; -webkit-text-stroke: 0.5px currentColor; letter-spacing:.1em}
+.p-item h3{font-family:var(--serif);font-size:24px;font-weight:600; -webkit-text-stroke: 0.5px currentColor; margin:8px 0 10px;letter-spacing:.06em}
+.p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
+.p-icon{
+  width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:32px auto 0;color:var(--black);
+}
+.p-icon svg{width:38px;height:38px}
 
 /* ---------- DRESS CODE ---------- */
 .dc-frame{
@@ -387,7 +390,8 @@ footer .ph-hero>*{position:relative;z-index:1}
 footer .f-title{
   font-family:var(--serif);
   font-size:clamp(34px,6.5vw,54px);
-  font-weight:400;
+  font-weight:600;
+  -webkit-text-stroke: 0.5px currentColor;
   letter-spacing:.12em;
   text-transform:uppercase;
   text-shadow:0 2px 18px rgba(0,0,0,.6);
@@ -522,7 +526,7 @@ footer .f-logo{
   </div>
 </header>
 
-<!-- Приглашение -->
+<!-- 1. Приглашение (Дорогие гости и календарь) -->
 <section class="reveal">
   <div class="container">
     <h2><span class="section-title">Дорогие гости!</span></h2>
@@ -551,7 +555,19 @@ footer .f-logo{
   </div>
 </section>
 
-<!-- Программа -->
+<!-- 2. Место проведения -->
+<section class="place reveal">
+  <div class="container">
+    <h2><span class="section-title">Место проведения</span></h2>
+    <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.992502%2C55.709769&z=16&pt=37.992502%2C55.709769%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
+    <div class="place-card">
+      <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Программа дня -->
 <section class="program reveal">
   <div class="container">
     <h2><span class="section-title">Программа дня</span></h2>
@@ -574,24 +590,12 @@ footer .f-logo{
   </div>
 </section>
 
-<!-- Место проведения -->
-<section class="place reveal">
-  <div class="container">
-    <h2><span class="section-title">Место проведения</span></h2>
-    <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
-    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.992502%2C55.709769&z=16&pt=37.992502%2C55.709769%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
-    <div class="place-card">
-      <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
-    </div>
-  </div>
-</section>
-
-<!-- Фото перед дресс-кодом -->
+<!-- 4. Фотография -->
 <section class="photo-block reveal" style="padding:0;">
   <img src="images/IMG_3518.PNG" alt="Фото" loading="lazy">
 </section>
 
-<!-- Дресс-код -->
+<!-- 5. Дресс-код -->
 <section class="reveal">
   <div class="container">
     <div class="dc-frame">
@@ -601,12 +605,12 @@ footer .f-logo{
   </div>
 </section>
 
-<!-- Фото после дресс-кода -->
+<!-- 6. Фотография -->
 <section class="photo-block reveal" style="padding:0;">
   <img src="images/IMG_3517.PNG" alt="Фото" loading="lazy">
 </section>
 
-<!-- Детали -->
+<!-- 7. Детали -->
 <section class="details reveal">
   <div class="container">
     <h2><span class="section-title">Детали</span></h2>
