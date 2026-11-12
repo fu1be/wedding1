@@ -10,10 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* === ПОДКЛЮЧЕНИЕ MAK (OTF) === */
+/* === ПОДКЛЮЧЕНИЕ ШРИФТОВ === */
 @font-face {
-  font-family: 'MAK';
-  src: url('fonts/MAK.otf') format('opentype');
+  font-family: 'Felidae';
+  src: url('fonts/Felidae.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
   --grey:#7d7d7d;
   --line:#e3ded6;
   --sans:'Montserrat',Arial,sans-serif;
-  --serif:'MAK',Georgia,serif;
+  --serif:'Felidae',Georgia,serif; /* Заменил MAK на Felidae */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,7 +46,7 @@ img{max-width:100%;display:block}
 section{padding:100px 24px;text-align:center}
 .container{max-width:880px;margin:0 auto}
 
-/* === ЗАГОЛОВКИ — MAK === */
+/* === ЗАГОЛОВКИ — Felidae === */
 h1, h2, h3,
 .hero-title,
 .date-big,
@@ -74,27 +74,29 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ ---------- */
+/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ (Как на примере) ---------- */
 .section-title {
   position: relative;
   display: inline-block;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 .section-title::before,
 .section-title::after {
   content: "";
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
-  width: 80%; /* Длина полосочек */
+  height: 1.5px;
   background-color: var(--black);
+  width: 60%; /* Длина полосочек */
 }
+/* Верхняя полосочка: ближе к началу (слева) */
 .section-title::before {
-  top: 0; /* Верхняя полосочка ближе к началу */
+  top: 0;
+  left: 0;
 }
+/* Нижняя полосочка: ближе к концу (справа) */
 .section-title::after {
-  bottom: 0; /* Нижняя полосочка ближе к концу */
+  bottom: 0;
+  right: 0;
 }
 
 /* ---------- COVER ---------- */
@@ -470,6 +472,9 @@ footer .f-logo{
   
   .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
   .music-btn svg { width: 24px; height: 24px; }
+  
+  /* Адаптация полосочек для мобильных */
+  .section-title::before, .section-title::after { width: 70%; }
 }
 </style>
 <base target="_blank">
@@ -553,7 +558,7 @@ footer .f-logo{
     <div class="p-item">
       <div class="time">17.00</div>
       <h3>Сбор гостей</h3>
-      <p>Встречаемся, знакомимся, общаемся и настраиваемся на наш особенный вечер. Будем рады разделить первые тёплые моменты этого дня вместе с вами.</p>
+      <p>Встречаемся, знакомимся, общаемся и настраиваемся на наш особенный день. Будем рады разделить первые тёплые моменты этого вечера вместе с Вами.</p>
       <div class="p-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
       </div>
@@ -561,7 +566,7 @@ footer .f-logo{
     <div class="p-item">
       <div class="time">18.00</div>
       <h3>Начало мероприятия</h3>
-      <p>Начинаем наш праздник! Концертная программа, наполненная любовью, улыбками и счастливыми моментами.</p>
+      <p>Начинаем наш праздник! Проведём этот вечер в тёплой и уютной атмосфере, наполненной любовью, улыбками и счастливыми моментами.</p>
       <div class="p-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20.5C7 16.5 3 13.3 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 4-4 7.2-9 11.2z"/></svg>
       </div>
@@ -574,7 +579,6 @@ footer .f-logo{
   <div class="container">
     <h2><span class="section-title">Место проведения</span></h2>
     <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
-    <!-- Обновленные координаты -->
     <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.992502%2C55.709769&z=16&pt=37.992502%2C55.709769%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
     <div class="place-card">
       <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
