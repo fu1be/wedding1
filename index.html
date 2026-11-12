@@ -46,7 +46,7 @@ img{max-width:100%;display:block}
 section{padding:100px 24px;text-align:center}
 .container{max-width:880px;margin:0 auto}
 
-/* === ЗАГОЛОВКИ — Felidae (Ещё на капельку толще) === */
+/* === ЗАГОЛОВКИ — Felidae (Ещё толще) === */
 h1, h2, h3,
 .hero-title,
 .date-big,
@@ -56,7 +56,7 @@ h1, h2, h3,
 .place-card h3 {
   font-family: var(--serif);
   font-weight: 400;
-  -webkit-text-stroke: 0.5px currentColor; /* Утолщение обводкой */
+  -webkit-text-stroke: 0.7px currentColor; /* Ещё толще */
 }
 h2{
   font-size:clamp(30px,5.5vw,46px);
@@ -85,20 +85,12 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .section-title::after {
   content: "";
   position: absolute;
-  height: 1px; /* Одинаковая толщина */
+  height: 1px;
   background-color: var(--black);
-  width: 40%; /* Сделали короче */
+  width: 40%;
 }
-/* Верхняя полосочка: ближе к началу (слева) */
-.section-title::before {
-  top: 0;
-  left: 0;
-}
-/* Нижняя полосочка: ближе к концу (справа) */
-.section-title::after {
-  bottom: 0;
-  right: 0;
-}
+.section-title::before { top: 0; left: 0; }
+.section-title::after { bottom: 0; right: 0; }
 
 /* ---------- COVER ---------- */
 .cover{
@@ -116,39 +108,30 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   background:
     radial-gradient(ellipse at 30% 40%, rgba(180, 140, 90, 0.15) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 60%, rgba(120, 80, 40, 0.2) 0%, transparent 60%);
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none; z-index:0;
 }
 .cover::after{
   content:"";
   position:absolute;inset:0;
-  background-image:
-    radial-gradient(circle, rgba(212,180,131,.08) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity:.6;
-  pointer-events:none;
-  z-index:0;
+  background-image: radial-gradient(circle, rgba(212,180,131,.08) 1px, transparent 1px);
+  background-size: 32px 32px; opacity:.6;
+  pointer-events:none; z-index:0;
 }
 .cover.hidden{opacity:0;visibility:hidden}
 
 .cover p{
   position:relative;z-index:2;
-  color:#efe9df;
-  font-family: var(--sans);
-  font-size:14px;
-  letter-spacing:.25em;
-  line-height:2.2;
-  text-transform:uppercase;
-  font-weight:400;
-  text-align:center;
+  color:#efe9df; font-family: var(--sans);
+  font-size:14px; letter-spacing:.25em;
+  line-height:2.2; text-transform:uppercase;
+  font-weight:400; text-align:center;
   text-shadow:0 2px 14px rgba(0,0,0,.5);
 }
 
 /* Кнопка в центре обложки с сердцем */
 .cover-heart-btn {
   position:relative;z-index:2;
-  width:120px;
-  height:120px;
+  width:120px; height:120px;
   background:rgba(28,20,16,.5);
   border:1px solid rgba(255,255,255,.2);
   border-radius:50%;
@@ -157,11 +140,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   animation:pulse 2.6s ease-in-out infinite;
 }
 .cover-heart-btn svg {
-  width:50px;
-  height:50px;
-  fill: none;
-  stroke: #efe9df;
-  stroke-width: 1.5;
+  width:50px; height:50px;
+  fill: none; stroke: #efe9df; stroke-width: 1.5;
 }
 @keyframes pulse{
   0%,100%{transform:scale(1)}
@@ -192,37 +172,30 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .hero-center{
   flex:1;
   display:flex;flex-direction:column;
-  justify-content:flex-end;
-  align-items:center;
-  width:100%;
-  gap:clamp(20px,3.5vh,32px);
+  justify-content:flex-end;align-items:center;
+  width:100%; gap:clamp(20px,3.5vh,32px);
   padding:20px 0 60px;
 }
 
 .hero-title{
   font-family:var(--serif);
   font-weight:400;
-  -webkit-text-stroke: 0.6px currentColor; /* Чуть толще на главном экране */
+  -webkit-text-stroke: 0.8px currentColor;
   font-size:clamp(38px,9vw,86px);
   letter-spacing:.1em;
   text-transform:uppercase;
   text-align:center;
   line-height:1.1;
   color:#fdfaf4;
-  text-shadow:
-    0 2px 24px rgba(0,0,0,.7),
-    0 4px 60px rgba(0,0,0,.4);
+  text-shadow: 0 2px 24px rgba(0,0,0,.7), 0 4px 60px rgba(0,0,0,.4);
   opacity:0;
   animation:fadeUp 1.2s ease .75s forwards;
 }
 
 .timer{
-  display:flex;
-  gap:clamp(8px,1.8vw,18px);
-  flex-wrap:wrap;
-  justify-content:center;
-  padding-bottom:6px;
-  opacity:0;
+  display:flex; gap:clamp(8px,1.8vw,18px);
+  flex-wrap:wrap; justify-content:center;
+  padding-bottom:6px; opacity:0;
   animation:fadeUp 1.2s ease 1.15s forwards;
 }
 .timer .unit{
@@ -237,27 +210,14 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   box-shadow:0 6px 24px rgba(0,0,0,.35);
 }
 .timer .num{
-  font-family:var(--sans);
-  font-size:clamp(20px,4.5vw,28px);
-  font-weight:400;
-  line-height:1;
-  letter-spacing:.04em;
-  color:#fdfaf4;
+  font-family:var(--sans); font-size:clamp(20px,4.5vw,28px);
+  font-weight:400; line-height:1; letter-spacing:.04em; color:#fdfaf4;
 }
 .timer .lbl{
-  font-family:var(--sans);
-  font-size:8px;
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:#d9d2c6;
-  margin-top:4px;
-  font-weight:400;
+  font-family:var(--sans); font-size:8px; letter-spacing:.3em;
+  text-transform:uppercase; color:#d9d2c6; margin-top:4px; font-weight:400;
 }
 
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-14px)}
-  to{opacity:1;transform:translateY(0)}
-}
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
@@ -266,14 +226,9 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 /* ---------- INVITE ---------- */
 .invite-text{max-width:640px;margin:30px auto 0;font-size:17px;line-height:1.8}
 .invite-text p{margin-bottom:14px}
-.invite-text .hello{
-  display:block;font-family:var(--serif);font-weight:400;
-  font-size:clamp(24px,4.5vw,32px);letter-spacing:.06em;
-  margin-bottom:18px;line-height:1.3;
-}
 .date-big{
   font-size:clamp(30px,5.5vw,42px);font-weight:400;
-  -webkit-text-stroke: 0.5px currentColor;
+  -webkit-text-stroke: 0.7px currentColor;
   margin:48px 0 32px;letter-spacing:.08em;
 }
 .calendar{
@@ -284,7 +239,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   display:flex;justify-content:space-between;
   font-size:18px;letter-spacing:.3em;text-transform:uppercase;
   margin-bottom:18px;font-weight:400;
-  -webkit-text-stroke: 0.5px currentColor;
+  -webkit-text-stroke: 0.7px currentColor;
 }
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px 0;font-family:var(--sans)}
 .cal-grid span{
@@ -296,39 +251,31 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 
 /* Сердце в календаре */
 .cal-grid .heart{
-  position: relative;
-  width:36px;height:36px;margin:0 auto;
+  position: relative; width:36px;height:36px;margin:0 auto;
   display: flex; align-items: center; justify-content: center;
   color:var(--black);font-weight:500;font-family:var(--sans);
   animation: heartPulse 2s infinite ease-in-out;
 }
 .cal-grid .heart svg {
-  position: absolute;
-  top: 50%; left: 50%;
+  position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 44px; height: 44px;
-  fill: none;
-  stroke: var(--black);
-  stroke-width: 1.2;
-  pointer-events: none;
+  fill: none; stroke: var(--black); stroke-width: 1.2; pointer-events: none;
 }
 .cal-grid .heart i { position: relative; z-index: 2; font-style: normal; display: block; margin-top: -2px;}
-
 @keyframes heartPulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 
-/* ---------- PLACE ---------- */
-.place{background:var(--white)}
+/* ---------- PLACE (Уменьшен отступ снизу) ---------- */
+.place{background:var(--white); padding-bottom: 40px;}
 .map-frame{
   width:100%;max-width:720px;height:360px;border:0;
   margin-top:38px;filter:grayscale(.25);
 }
 .place-card{margin-top:30px}
-.place-card h3{font-family:var(--serif);font-size:30px;font-weight:400; -webkit-text-stroke: 0.5px currentColor; letter-spacing:.06em}
-.place-card .addr{font-family:var(--sans);color:#4d4d4d;margin:8px 0 24px;font-size:16px;line-height:1.8}
 .btn{
   display:inline-block;padding:16px 38px;background:var(--black);color:var(--white);
   text-decoration:none;font-family:var(--sans);font-size:11px;letter-spacing:.3em;
@@ -337,25 +284,30 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .btn:hover{background:transparent;color:var(--black)}
 
-/* ---------- PROGRAM ---------- */
-.program{background:var(--white)}
-.p-item{max-width:500px;margin:48px auto 0}
-.p-item .time{font-size:30px;font-weight:400; -webkit-text-stroke: 0.5px currentColor; letter-spacing:.1em}
-.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400; -webkit-text-stroke: 0.5px currentColor; margin:8px 0 10px;letter-spacing:.06em}
+/* ---------- PROGRAM (Уменьшены отступы) ---------- */
+.program{background:var(--white); padding-top: 40px;}
+.p-item{max-width:500px;margin:20px auto 0} /* Было 48px */
+.p-item .time{font-size:30px;font-weight:400; -webkit-text-stroke: 0.7px currentColor; letter-spacing:.1em}
+.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400; -webkit-text-stroke: 0.7px currentColor; margin:4px 0 10px;letter-spacing:.06em} /* Было 8px */
 .p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
 .p-icon{
-  width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
+  width:80px;height:80px;border:1px solid var(--black);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  margin:32px auto 0;color:var(--black);
+  margin:20px auto 0;color:var(--black);
 }
-.p-icon svg{width:38px;height:38px}
+.p-icon svg{width:32px;height:32px}
 
-/* ---------- DRESS CODE ---------- */
+/* ---------- PHOTO BLOCKS (Убраны зазоры) ---------- */
+.photo-block{padding:0; margin:0; overflow:hidden; background:var(--line); line-height: 0;}
+.photo-block img{width:100%; height:auto; display:block; object-fit:cover;}
+
+/* ---------- DRESS CODE (Уменьшены отступы) ---------- */
+.dc-section { padding: 40px 24px; } /* Уменьшен padding */
 .dc-frame{
-  max-width:660px;margin:40px auto 0;border:1px solid var(--black);
-  padding:50px 36px;background:var(--white);
+  max-width:660px; margin:0 auto; border:1px solid var(--black);
+  padding:50px 36px; background:var(--white);
 }
-.dc-frame h2{margin-bottom:20px}
+.dc-frame h2{margin-bottom:20px; -webkit-text-stroke: 0.7px currentColor;}
 .dc-frame p{font-family:var(--sans);font-size:16px;line-height:1.8;color:#4d4d4d}
 
 /* ---------- DETAILS ---------- */
@@ -374,9 +326,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 footer{background:var(--black);color:var(--white);text-align:center;margin:0;padding:0}
 footer .ph-hero{
   background:url('images/IMG_3519.PNG') center 30%/cover no-repeat, linear-gradient(135deg,#241d14,#181512);
-  min-height:100vh;
-  min-height:100svh;
-  min-height:100dvh;
+  min-height:100vh; min-height:100svh; min-height:100dvh;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   gap:16px;position:relative;padding:60px 20px;overflow:hidden;
 }
@@ -388,23 +338,15 @@ footer .ph-hero::before{
 }
 footer .ph-hero>*{position:relative;z-index:1}
 footer .f-title{
-  font-family:var(--serif);
-  font-size:clamp(34px,6.5vw,54px);
-  font-weight:400;
-  -webkit-text-stroke: 0.5px currentColor;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  text-shadow:0 2px 18px rgba(0,0,0,.6);
-  line-height:1.15;
+  font-family:var(--serif);font-size:clamp(34px,6.5vw,54px);
+  font-weight:400; -webkit-text-stroke: 0.7px currentColor;
+  letter-spacing:.12em;text-transform:uppercase;
+  text-shadow:0 2px 18px rgba(0,0,0,.6);line-height:1.15;
 }
 footer .f-names{
   font-family:var(--sans);font-size:12px;letter-spacing:.4em;
   text-transform:uppercase;color:#efe7da;
   text-shadow:0 2px 12px rgba(0,0,0,.6);font-weight:400;
-}
-footer .f-logo{
-  position:absolute;bottom:50px;left:50%;transform:translateX(-50%);
-  width:160px;z-index:2;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));
 }
 
 /* ---------- ANIMATION ---------- */
@@ -414,40 +356,19 @@ footer .f-logo{
 }
 .reveal.visible{opacity:1;transform:none}
 
-/* ---------- PHOTO BLOCKS ---------- */
-.photo-block{padding:0;margin:0;overflow:hidden;background:var(--line)}
-.photo-block img{width:100%;height:auto;display:block;object-fit:cover}
-
 /* ---------- MUSIC BUTTON ---------- */
 .music-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 200;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  position: fixed; top: 20px; right: 20px;
+  z-index: 200; width: 60px; height: 60px;
+  border-radius: 50%; background: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: transform 0.2s, background 0.2s;
-  color: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s; color: var(--black);
 }
-.music-btn:hover {
-  transform: scale(1.05);
-  background: #fff;
-}
-.music-btn svg {
-  width: 28px;
-  height: 28px;
-}
-.music-btn.playing svg {
-  animation: pulse-icon 1.5s infinite;
-}
+.music-btn:hover { transform: scale(1.05); background: #fff; }
+.music-btn svg { width: 28px; height: 28px; }
+.music-btn.playing svg { animation: pulse-icon 1.5s infinite; }
 @keyframes pulse-icon {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -456,7 +377,7 @@ footer .f-logo{
 
 /* ---------- MOBILE ---------- */
 @media(max-width:520px){
-  section{padding:70px 16px}
+  section{padding:50px 16px}
   .hero{padding:24px 16px 30px}
   .hero-center{gap:18px;padding:16px 0 40px}
   .hero-title{font-size:clamp(34px,11vw,46px);letter-spacing:.08em}
@@ -465,9 +386,11 @@ footer .f-logo{
   .timer .num{font-size:18px}
   .timer .lbl{font-size:7px;letter-spacing:.22em}
   .calendar{padding:20px 22px}
+  .dc-section { padding: 20px 16px; }
   .dc-frame{padding:36px 22px}
   .btn{padding:14px 28px;font-size:10px}
-  footer .f-logo{width:110px;bottom:36px}
+  .place { padding-bottom: 20px; }
+  .program { padding-top: 20px; }
 
   .cover{gap:44px}
   .cover-heart-btn{width:100px;height:100px}
@@ -477,7 +400,6 @@ footer .f-logo{
   .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
   .music-btn svg { width: 24px; height: 24px; }
   
-  /* Адаптация полосочек для мобильных */
   .section-title::before, .section-title::after { width: 50%; }
 }
 </style>
@@ -499,8 +421,10 @@ footer .f-logo{
   </svg>
 </div>
 
-<!-- Скрытый YouTube плеер -->
+<!-- Основной скрытый YouTube плеер (управление) -->
 <div id="youtube-player" style="display:none;"></div>
+<!-- Скрытый плеер-дубль для обхода блокировки автоплея на мобильных -->
+<iframe id="yt-trigger" style="display:none; width:0; height:0;" allow="autoplay"></iframe>
 
 <!-- Обложка -->
 <div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
@@ -526,7 +450,7 @@ footer .f-logo{
   </div>
 </header>
 
-<!-- 1. Приглашение (Дорогие гости и календарь) -->
+<!-- 1. Приглашение -->
 <section class="reveal">
   <div class="container">
     <h2><span class="section-title">Дорогие гости!</span></h2>
@@ -591,12 +515,12 @@ footer .f-logo{
 </section>
 
 <!-- 4. Фотография -->
-<section class="photo-block reveal" style="padding:0;">
+<section class="photo-block reveal">
   <img src="images/IMG_3518.PNG" alt="Фото" loading="lazy">
 </section>
 
 <!-- 5. Дресс-код -->
-<section class="reveal">
+<section class="dc-section reveal">
   <div class="container">
     <div class="dc-frame">
       <h2>Dress code</h2>
@@ -606,7 +530,7 @@ footer .f-logo{
 </section>
 
 <!-- 6. Фотография -->
-<section class="photo-block reveal" style="padding:0;">
+<section class="photo-block reveal">
   <img src="images/IMG_3517.PNG" alt="Фото" loading="lazy">
 </section>
 
@@ -629,12 +553,12 @@ footer .f-logo{
 </footer>
 
 <script>
-// === Музыка (YouTube API) ===
 const musicBtn = document.getElementById('musicBtn');
 const iconSound = document.getElementById('iconSound');
 const iconMute = document.getElementById('iconMute');
 let player;
 let isPlaying = false;
+const VIDEO_ID = 'C17gvPx2lX4';
 
 // Загрузка API YouTube
 const tag = document.createElement('script');
@@ -646,12 +570,12 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('youtube-player', {
     height: '0',
     width: '0',
-    videoId: 'C17gvPx2lX4',
+    videoId: VIDEO_ID,
     playerVars: {
       'autoplay': 0,
       'controls': 0,
       'loop': 1,
-      'playlist': 'C17gvPx2lX4',
+      'playlist': VIDEO_ID,
       'showinfo': 0,
       'rel': 0,
       'modestbranding': 1
@@ -691,10 +615,16 @@ musicBtn.addEventListener('click', () => {
 const cover = document.getElementById('cover');
 cover.addEventListener('click', () => {
   cover.classList.add('hidden');
-  // Принудительный запуск музыки после действия пользователя
+  
+  // 1. Запускаем основной плеер
   if (player && typeof player.playVideo === 'function') {
     player.playVideo();
   }
+
+  // 2. Хак для мобильных браузеров (iOS/Android), которые режут автоплей API
+  // Создаем невидимый iframe с autoplay прямо в момент клика
+  const trigger = document.getElementById('yt-trigger');
+  trigger.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${VIDEO_ID}&playsinline=1`;
 });
 
 // === Таймер ===
