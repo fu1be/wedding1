@@ -191,12 +191,12 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   animation:fadeUp 1.2s ease .75s forwards;
 }
 
-/* Делаем амперсанд тоньше */
+/* Делаем амперсанд тонким, но сохраняем размер */
 .hero-title .amp {
   -webkit-text-stroke: 0;
   font-weight: 300;
-  font-family: var(--sans); /* Если нужно, чтобы он был совсем тонким. Если оставить Felidae, тоже будет тоньше */
-  font-size: 0.8em; /* Немного уменьшаем его */
+  font-family: var(--sans); 
+  font-size: 1em; /* Такой же размер, как и у текста */
 }
 
 .timer{
@@ -295,7 +295,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .program{background:var(--white); padding-top: 40px;}
 .p-item{max-width:500px;margin:20px auto 0}
 
-/* Время теперь как обычный текст */
 .p-item .time{
   font-size: 15px; 
   font-family: var(--sans);
@@ -305,7 +304,6 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   margin-bottom: 0px;
 }
 
-/* Прижимаем заголовок к времени */
 .p-item h3{
   font-family:var(--serif);
   font-size:24px;
@@ -478,7 +476,7 @@ footer .f-names{
   <div class="container">
     <h2><span class="section-title">Дорогие гости!</span></h2>
     <div class="invite-text">
-      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни. Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
+      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни.<br>Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
     </div>
     <p class="date-big">18 декабря 2026 года</p>
     <div class="calendar">
@@ -571,7 +569,7 @@ footer .f-names{
 <footer>
   <div class="ph-hero">
     <div class="f-title">Будем рады<br>видеть вас!</div>
-    <div class="f-names">Ваагн <span class="amp" style="-webkit-text-stroke:0; font-weight:300; font-family:var(--sans); font-size:0.8em;">&</span> Кристина</div>
+    <div class="f-names">Ваагн <span class="amp" style="-webkit-text-stroke:0; font-weight:300; font-family:var(--sans); font-size:1em;">&</span> Кристина</div>
   </div>
 </footer>
 
