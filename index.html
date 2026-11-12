@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ваагн & Кристина — 18 декабря 2026</title>
+<meta name="description" content="Приглашение на свадьбу Ваагна и Кристины — 18 декабря 2026, ресторан Mar house, Балашиха">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* === ПОДКЛЮЧЕНИЕ MAK (OTF) === */
+@font-face {
+  font-family: 'MAK';
+  src: url('fonts/MAK.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root{
+  --black:#181512;
+  --brown:#241d14;
+  --white:#ffffff;
+  --off:#faf8f5;
+  --red:#b3122e;
+  --grey:#7d7d7d;
+  --line:#e3ded6;
+  --sans:'Montserrat',Arial,sans-serif;
+  --serif:'MAK',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--off);
+  color:var(--black);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;display:block}
+section{padding:100px 24px;text-align:center}
+.container{max-width:880px;margin:0 auto}
+
+/* === ЗАГОЛОВКИ — MAK === */
+h1, h2, h3,
+.hero-title,
+.date-big,
+.f-title,
+.cal-head,
+.p-item .time,
+.place-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+h2{
+  font-size:clamp(30px,5.5vw,46px);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  line-height:1.2;
+}
+.h-decor{position:relative;display:inline-block;padding:0 12px}
+.h-decor::before,.h-decor::after{
+  content:"";position:absolute;height:1px;width:52px;
+  background:var(--black);top:50%;transform:translateY(-50%);
+}
+.h-decor::before{left:-56px}
+.h-decor::after{right:-56px}
+
+/* === ОСТАЛЬНОЕ — Montserrat === */
+.sub,.invite-text,.cal-grid,.cal-grid span,.timer,.timer .num,.timer .lbl,
+.p-item p,.field,.field label,.field input,.radio-row,.btn,.btn-send,.form-msg,
+footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
+
+.sub{
+  color:#4d4d4d;max-width:620px;margin:20px auto 0;
+  font-size:16px;line-height:1.75;letter-spacing:.02em;
+}
+
+/* ---------- COVER ---------- */
+.cover{
+  position:fixed;inset:0;z-index:100;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:56px;
+  cursor:pointer;
+  transition:opacity .9s ease,visibility .9s;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(15,10,7,.88) 0%, rgba(20,14,10,.82) 50%, rgba(10,7,5,.95) 100%),
+    url('images/IMG_3516.PNG') center/cover no-repeat,
+    #1a120b;
+}
+.cover::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(8,5,3,.55) 70%, rgba(5,3,2,.95) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+.cover::after{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle, rgba(212,180,131,.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity:.5;
+  pointer-events:none;
+  z-index:0;
+}
+.cover.hidden{opacity:0;visibility:hidden}
+
+.cover p{
+  position:relative;z-index:2;
+  color:#efe9df;
+  font-size:14px;
+  letter-spacing:.2em;
+  line-height:2;
+  text-transform:uppercase;
+  font-weight:400;
+  text-align:center;
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+
+.logo-wrap{
+  position:relative;z-index:2;
+  width:150px;height:150px;
+  background:#1c1410;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.03)}
+}
+
+.logo-wrap img{
+  width:100px;
+  height:100px;
+  object-fit:contain;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
+  position:relative;
+  display:flex;flex-direction:column;
+  justify-content:space-between;align-items:center;
+  padding:34px 24px 38px;
+  color:var(--white);
+  background:url('images/IMG_3516.PNG') center 20%/cover no-repeat, linear-gradient(135deg,#241d14,#181512);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(10,8,6,.35) 60%, rgba(10,8,6,.75) 100%),
+    linear-gradient(180deg, rgba(10,8,6,.7) 0%, rgba(10,8,6,.15) 30%, rgba(10,8,6,.55) 70%, rgba(10,8,6,.92) 100%);
+}
+.hero>*{position:relative;z-index:1}
+
+.hero-center{
+  flex:1;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  width:100%;
+  gap:clamp(20px,3.5vh,32px);
+  padding:20px 0 60px;
+}
+
+.hero-title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(38px,9vw,86px);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  text-align:center;
+  line-height:1.1;
+  color:#fdfaf4;
+  text-shadow:
+    0 2px 24px rgba(0,0,0,.7),
+    0 4px 60px rgba(0,0,0,.4);
+  opacity:0;
+  animation:fadeUp 1.2s ease .75s forwards;
+}
+.hero-title b{font-weight:400;font-style:normal;display:inline}
+
+.timer{
+  display:flex;
+  gap:clamp(8px,1.8vw,18px);
+  flex-wrap:wrap;
+  justify-content:center;
+  padding-bottom:6px;
+  opacity:0;
+  animation:fadeUp 1.2s ease 1.15s forwards;
+}
+.timer .unit{
+  width:clamp(64px,15vw,88px);
+  height:clamp(64px,15vw,88px);
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:50%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:rgba(20,15,10,.4);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 6px 24px rgba(0,0,0,.35);
+}
+.timer .num{
+  font-family:var(--sans);
+  font-size:clamp(20px,4.5vw,28px);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:.04em;
+  color:#fdfaf4;
+}
+.timer .lbl{
+  font-family:var(--sans);
+  font-size:8px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#d9d2c6;
+  margin-top:4px;
+  font-weight:400;
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ---------- INVITE ---------- */
+.invite-text{max-width:640px;margin:30px auto 0;font-size:17px;line-height:1.8}
+.invite-text p{margin-bottom:14px}
+.invite-text .hello{
+  display:block;font-family:var(--serif);font-weight:400;
+  font-size:clamp(24px,4.5vw,32px);letter-spacing:.06em;
+  margin-bottom:18px;line-height:1.3;
+}
+.date-big{
+  font-size:clamp(30px,5.5vw,42px);font-weight:400;
+  margin:48px 0 32px;letter-spacing:.08em;
+}
+.calendar{
+  max-width:400px;margin:0 auto;border:1px solid var(--black);
+  padding:26px 30px;background:var(--white);
+}
+.calendar .cal-head{
+  display:flex;justify-content:space-between;
+  font-size:18px;letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:18px;font-weight:400;
+}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px 0;font-family:var(--sans)}
+.cal-grid span{
+  font-family:var(--sans);font-size:15px;padding:8px 0;
+  display:flex;align-items:center;justify-content:center;font-weight:400;
+}
+.cal-grid .wd{font-size:10px;letter-spacing:.16em;color:var(--grey);text-transform:uppercase;font-weight:500}
+.cal-grid .out{color:#c9c4bc}
+.cal-grid .heart{
+  border:1.5px solid var(--black);border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);width:36px;height:36px;margin:0 auto;
+  color:var(--black);font-weight:500;font-family:var(--sans);
+}
+.cal-grid .heart i{transform:rotate(45deg);font-style:normal;display:block}
+
+/* ---------- PROGRAM ---------- */
+.program{background:var(--white)}
+.p-item{max-width:500px;margin:48px auto 0}
+.p-item .time{font-size:30px;font-weight:400;letter-spacing:.1em}
+.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:8px 0 10px;letter-spacing:.06em}
+.p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
+.p-icon{
+  width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:32px auto 0;color:var(--black);
+}
+.p-icon svg{width:38px;height:38px}
+
+/* ---------- PLACE ---------- */
+.place{background:var(--white)}
+.map-frame{
+  width:100%;max-width:720px;height:360px;border:0;
+  margin-top:38px;filter:grayscale(.25);
+}
+.place-card{margin-top:30px}
+.place-card h3{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:.06em}
+.place-card .addr{font-family:var(--sans);color:#4d4d4d;margin:8px 0 24px;font-size:16px;line-height:1.8}
+.btn{
+  display:inline-block;padding:16px 38px;background:var(--black);color:var(--white);
+  text-decoration:none;font-family:var(--sans);font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;margin:6px;transition:.3s;
+  border:1px solid var(--black);cursor:pointer;font-weight:500;
+}
+.btn:hover{background:transparent;color:var(--black)}
+
+/* ---------- DRESS CODE ---------- */
+.dc-frame{
+  max-width:660px;margin:40px auto 0;border:1px solid var(--black);
+  padding:50px 36px;background:var(--white);
+}
+.dc-frame h2{margin-bottom:20px}
+.dc-frame p{font-family:var(--sans);font-size:16px;line-height:1.8;color:#4d4d4d}
+
+/* ---------- DETAILS ---------- */
+.details{background:var(--off)}
+.details-content{max-width:640px;margin:40px auto 0;font-size:17px;line-height:1.8}
+.details-content p{margin-bottom:18px}
+.phone-link{
+  display:inline-block;margin-top:10px;padding:14px 32px;
+  background:var(--black);color:var(--white);text-decoration:none;
+  font-family:var(--sans);font-size:14px;letter-spacing:.15em;
+  transition:.3s;border:1px solid var(--black);
+}
+.phone-link:hover{background:transparent;color:var(--black)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--black);color:var(--white);text-align:center;margin:0;padding:0}
+footer .ph-hero{
+  background:url('images/IMG_3519.PNG') center 30%/cover no-repeat, linear-gradient(135deg,#241d14,#181512);
+  min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:16px;position:relative;padding:60px 20px;overflow:hidden;
+}
+footer .ph-hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(10,8,6,.3) 60%, rgba(10,8,6,.7) 100%),
+    rgba(10,8,6,.35);
+}
+footer .ph-hero>*{position:relative;z-index:1}
+footer .f-title{
+  font-family:var(--serif);
+  font-size:clamp(34px,6.5vw,54px);
+  font-weight:400;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-shadow:0 2px 18px rgba(0,0,0,.6);
+  line-height:1.15;
+}
+footer .f-names{
+  font-family:var(--sans);font-size:12px;letter-spacing:.4em;
+  text-transform:uppercase;color:#efe7da;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);font-weight:400;
+}
+footer .f-logo{
+  position:absolute;bottom:50px;left:50%;transform:translateX(-50%);
+  width:160px;z-index:2;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));
+}
+
+/* ---------- ANIMATION ---------- */
+.reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- PHOTO BLOCKS ---------- */
+.photo-block{padding:0;margin:0;overflow:hidden;background:var(--line)}
+.photo-block img{width:100%;height:auto;display:block;object-fit:cover}
+
+/* ---------- MUSIC BUTTON ---------- */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s;
+  color: var(--black);
+}
+.music-btn:hover {
+  transform: scale(1.05);
+  background: #fff;
+}
+.music-btn svg {
+  width: 28px;
+  height: 28px;
+}
+.music-btn.playing svg {
+  animation: pulse-icon 1.5s infinite;
+}
+@keyframes pulse-icon {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:520px){
+  section{padding:70px 16px}
+  .hero{padding:24px 16px 30px}
+  .hero-center{gap:18px;padding:16px 0 40px}
+  .hero-title{font-size:clamp(34px,11vw,46px);letter-spacing:.08em}
+  .timer{gap:6px}
+  .timer .unit{width:60px;height:60px}
+  .timer .num{font-size:18px}
+  .timer .lbl{font-size:7px;letter-spacing:.22em}
+  .h-decor::before,.h-decor::after{display:none}
+  .calendar{padding:20px 22px}
+  .dc-frame{padding:36px 22px}
+  .btn{padding:14px 28px;font-size:10px}
+  footer .f-logo{width:110px;bottom:36px}
+
+  .cover{gap:44px}
+  .logo-wrap{width:120px;height:120px}
+  .logo-wrap img{width:80px;height:80px}
+  .cover p{font-size:12px;letter-spacing:.18em}
+  
+  .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
+  .music-btn svg { width: 24px; height: 24px; }
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- Музыкальная кнопка -->
+<div class="music-btn" id="musicBtn" title="Включить/выключить музыку">
+  <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+  </svg>
+  <svg id="iconMute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</div>
+
+<!-- Скрытый YouTube плеер -->
+<div id="youtube-player" style="display:none;"></div>
+
+<!-- Обложка -->
+<div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
+  <p>Нажмите, чтобы открыть<br>приглашение</p>
+  <div class="logo-wrap">
+    <img src="images/logo.png" alt="Nazan Dance" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<!-- Главный экран -->
+<header class="hero">
+  <div class="hero-center">
+    <h1 class="hero-title">Ваагн & Кристина</h1>
+  </div>
+
+  <div class="timer">
+    <div class="unit"><div class="num" id="d">00</div><div class="lbl">дней</div></div>
+    <div class="unit"><div class="num" id="h">00</div><div class="lbl">часов</div></div>
+    <div class="unit"><div class="num" id="m">00</div><div class="lbl">минут</div></div>
+    <div class="unit"><div class="num" id="s">00</div><div class="lbl">секунд</div></div>
+  </div>
+</header>
+
+<!-- Приглашение -->
+<section class="reveal">
+  <div class="container">
+    <h2><span class="h-decor">Дорогие гости!</span></h2>
+    <div class="invite-text">
+      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни. Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
+    </div>
+    <p class="date-big">18 декабря 2026 года</p>
+    <div class="calendar">
+      <div class="cal-head"><span>Декабрь</span><span>2026</span></div>
+      <div class="cal-grid">
+        <span class="wd">Пн</span><span class="wd">Вт</span><span class="wd">Ср</span><span class="wd">Чт</span><span class="wd">Пт</span><span class="wd">Сб</span><span class="wd">Вс</span>
+        <!-- Декабрь 2026: 1 декабря - вторник -->
+        <span class="out">30</span>
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+        <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+        <span>14</span><span>15</span><span>16</span><span>17</span>
+        <span class="heart"><i>18</i></span>
+        <span>19</span><span>20</span>
+        <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
+        <span>28</span><span>29</span><span>30</span><span>31</span>
+        <span class="out">1</span><span class="out">2</span><span class="out">3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Программа -->
+<section class="program reveal">
+  <div class="container">
+    <h2><span class="h-decor">Программа дня</span></h2>
+    <div class="p-item">
+      <div class="time">17.00</div>
+      <h3>Сбор гостей</h3>
+      <p>Встречаемся, знакомимся, общаемся и настраиваемся на наш особенный вечер. Будем рады разделить первые тёплые моменты этого дня вместе с вами.</p>
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </div>
+    </div>
+    <div class="p-item">
+      <div class="time">18.00</div>
+      <h3>Начало мероприятия</h3>
+      <p>Начинаем наш праздник! Концертная программа, наполненная любовью, улыбками и счастливыми моментами.</p>
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20.5C7 16.5 3 13.3 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 4-4 7.2-9 11.2z"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Место проведения -->
+<section class="place reveal">
+  <div class="container">
+    <h2><span class="h-decor">Место проведения</span></h2>
+    <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.865%2C55.795&z=15&pt=37.865%2C55.795%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
+    <div class="place-card">
+      <a class="btn" href="https://yandex.ru/maps/?rtext=~55.795%2C37.865" target="_blank" rel="noopener">Построить маршрут</a>
+    </div>
+  </div>
+</section>
+
+<!-- Фото перед дресс-кодом -->
+<section class="photo-block reveal" style="padding:0;">
+  <img src="images/IMG_3518.PNG" alt="Фото" loading="lazy">
+</section>
+
+<!-- Дресс-код -->
+<section class="reveal">
+  <div class="container">
+    <div class="dc-frame">
+      <h2><span class="h-decor">Dress code</span></h2>
+      <p>Дресс-код — свободный, поэтому выбирайте наряд, в котором вам будет комфортно и красиво.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Фото после дресс-кода -->
+<section class="photo-block reveal" style="padding:0;">
+  <img src="images/IMG_3517.PNG" alt="Фото" loading="lazy">
+</section>
+
+<!-- Детали -->
+<section class="details reveal">
+  <div class="container">
+    <h2><span class="h-decor">Детали</span></h2>
+    <div class="details-content">
+      <p>Если у Вас возникнут вопросы по месту проведения, таймингу или любым организационным моментам, Вы можете обратиться напрямую:</p>
+      <a href="tel:+79670055536" class="phone-link">+7 967 005-55-36</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ph-hero">
+    <div class="f-title">Будем рады<br>видеть вас!</div>
+    <div class="f-names">Ваагн & Кристина</div>
+  </div>
+</footer>
+
+<script>
+// === Музыка (YouTube API) ===
+const musicBtn = document.getElementById('musicBtn');
+const iconSound = document.getElementById('iconSound');
+const iconMute = document.getElementById('iconMute');
+let player;
+let isPlaying = false;
+
+// Загрузка API YouTube
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-player', {
+    height: '0',
+    width: '0',
+    videoId: 'C17gvPx2lX4',
+    playerVars: {
+      'autoplay': 0,
+      'controls': 0,
+      'loop': 1,
+      'playlist': 'C17gvPx2lX4',
+      'showinfo': 0,
+      'rel': 0,
+      'modestbranding': 1
+    },
+    events: {
+      'onReady': (event) => {
+        event.target.setVolume(50);
+      },
+      'onStateChange': (event) => {
+        if (event.data === YT.PlayerState.PLAYING) {
+          isPlaying = true;
+          musicBtn.classList.add('playing');
+          iconSound.style.display = 'block';
+          iconMute.style.display = 'none';
+        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+          isPlaying = false;
+          musicBtn.classList.remove('playing');
+          iconSound.style.display = 'none';
+          iconMute.style.display = 'block';
+        }
+      }
+    }
+  });
+}
+
+musicBtn.addEventListener('click', () => {
+  if (player && typeof player.playVideo === 'function') {
+    if (isPlaying) {
+      player.pauseVideo();
+    } else {
+      player.playVideo();
+    }
+  }
+});
+
+// === Обложка ===
+const cover = document.getElementById('cover');
+cover.addEventListener('click', () => cover.classList.add('hidden'));
+
+// === Таймер ===
+const target = new Date('2026-12-18T17:00:00+03:00').getTime();
+const dEl = document.getElementById('d');
+const hEl = document.getElementById('h');
+const mEl = document.getElementById('m');
+const sEl = document.getElementById('s');
+
+function tick(){
+  const diff = Math.max(target - Date.now(), 0);
+  const pad = n => String(n).padStart(2,'0');
+  dEl.textContent = pad(Math.floor(diff/86400000));
+  hEl.textContent = pad(Math.floor(diff/3600000)%24);
+  mEl.textContent = pad(Math.floor(diff/60000)%60);
+  sEl.textContent = pad(Math.floor(diff/1000)%60);
+}
+tick();
+setInterval(tick, 1000);
+
+// === Анимация появления ===
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')), {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
