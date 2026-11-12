@@ -46,7 +46,7 @@ img{max-width:100%;display:block}
 section{padding:100px 24px;text-align:center}
 .container{max-width:880px;margin:0 auto}
 
-/* === ЗАГОЛОВКИ — Felidae (Сделаны чуть тоньше) === */
+/* === ЗАГОЛОВКИ — Felidae (Сделаны на капельку толще) === */
 h1, h2, h3,
 .hero-title,
 .date-big,
@@ -55,7 +55,8 @@ h1, h2, h3,
 .p-item .time,
 .place-card h3 {
   font-family: var(--serif);
-  font-weight: 400; /* Убрали жирность, вернули стандартную */
+  font-weight: 400;
+  -webkit-text-stroke: 0.3px currentColor; /* Легкое утолщение */
 }
 h2{
   font-size:clamp(30px,5.5vw,46px);
@@ -200,7 +201,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 
 .hero-title{
   font-family:var(--serif);
-  font-weight:400; /* Тоньше */
+  font-weight:400;
+  -webkit-text-stroke: 0.4px currentColor; /* На капельку толще */
   font-size:clamp(38px,9vw,86px);
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -271,6 +273,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .date-big{
   font-size:clamp(30px,5.5vw,42px);font-weight:400;
+  -webkit-text-stroke: 0.3px currentColor;
   margin:48px 0 32px;letter-spacing:.08em;
 }
 .calendar{
@@ -281,6 +284,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   display:flex;justify-content:space-between;
   font-size:18px;letter-spacing:.3em;text-transform:uppercase;
   margin-bottom:18px;font-weight:400;
+  -webkit-text-stroke: 0.3px currentColor;
 }
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px 0;font-family:var(--sans)}
 .cal-grid span{
@@ -323,7 +327,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   margin-top:38px;filter:grayscale(.25);
 }
 .place-card{margin-top:30px}
-.place-card h3{font-family:var(--serif);font-size:30px;font-weight:400; letter-spacing:.06em}
+.place-card h3{font-family:var(--serif);font-size:30px;font-weight:400; -webkit-text-stroke: 0.3px currentColor; letter-spacing:.06em}
 .place-card .addr{font-family:var(--sans);color:#4d4d4d;margin:8px 0 24px;font-size:16px;line-height:1.8}
 .btn{
   display:inline-block;padding:16px 38px;background:var(--black);color:var(--white);
@@ -336,8 +340,8 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 /* ---------- PROGRAM ---------- */
 .program{background:var(--white)}
 .p-item{max-width:500px;margin:48px auto 0}
-.p-item .time{font-size:30px;font-weight:400; letter-spacing:.1em}
-.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400; margin:8px 0 10px;letter-spacing:.06em}
+.p-item .time{font-size:30px;font-weight:400; -webkit-text-stroke: 0.3px currentColor; letter-spacing:.1em}
+.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400; -webkit-text-stroke: 0.3px currentColor; margin:8px 0 10px;letter-spacing:.06em}
 .p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
 .p-icon{
   width:96px;height:96px;border:1px solid var(--black);border-radius:50%;
@@ -387,6 +391,7 @@ footer .f-title{
   font-family:var(--serif);
   font-size:clamp(34px,6.5vw,54px);
   font-weight:400;
+  -webkit-text-stroke: 0.3px currentColor;
   letter-spacing:.12em;
   text-transform:uppercase;
   text-shadow:0 2px 18px rgba(0,0,0,.6);
