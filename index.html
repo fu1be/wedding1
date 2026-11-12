@@ -157,7 +157,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   justify-content:space-between;align-items:center;
   padding:34px 24px 38px;
   color:var(--white);
-  background:url('images/IMG_3516.PNG') center 20%/cover no-repeat, linear-gradient(135deg,#241d14,#181512);
+  background:url('images/IMG_3516.jpg') center 20%/cover no-repeat, linear-gradient(135deg,#241d14,#181512);
   overflow:hidden;
 }
 .hero::before{
@@ -196,7 +196,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   -webkit-text-stroke: 0;
   font-weight: 300;
   font-family: var(--sans); 
-  font-size: 1em; /* Такой же размер, как и у текста */
+  font-size: 1em; 
 }
 
 .timer{
@@ -430,6 +430,9 @@ footer .f-names{
 </head>
 <body>
 
+<!-- Аудиоплеер (скрытый) -->
+<audio id="bg-music" src="audio/first.mp3" loop></audio>
+
 <!-- Музыкальная кнопка -->
 <div class="music-btn" id="musicBtn" title="Включить/выключить музыку">
   <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
@@ -443,9 +446,6 @@ footer .f-names{
     <line x1="17" y1="9" x2="23" y2="15"></line>
   </svg>
 </div>
-
-<!-- Скрытый YouTube плеер -->
-<div id="youtube-player" style="display:none;"></div>
 
 <!-- Обложка -->
 <div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
@@ -476,7 +476,7 @@ footer .f-names{
   <div class="container">
     <h2><span class="section-title">Дорогие гости!</span></h2>
     <div class="invite-text">
-      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни. Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
+      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни.<br>Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
     </div>
     <p class="date-big">18 декабря 2026 года</p>
     <div class="calendar">
@@ -504,7 +504,7 @@ footer .f-names{
 <section class="place reveal">
   <div class="container">
     <h2><span class="section-title">Место проведения</span></h2>
-    <p class="sub">Наш праздник пройдёт в ресторане<br>Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
+    <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
     <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.992502%2C55.709769&z=16&pt=37.992502%2C55.709769%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
     <div class="place-card">
       <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
@@ -574,61 +574,35 @@ footer .f-names{
 </footer>
 
 <script>
-// === Музыка (YouTube API) ===
+// === Музыка (Локальный файл) ===
 const musicBtn = document.getElementById('musicBtn');
 const iconSound = document.getElementById('iconSound');
 const iconMute = document.getElementById('iconMute');
-let player;
-let isPlaying = false;
+const bgMusic = document.getElementById('bg-music');
 
-// Загрузка API YouTube
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('youtube-player', {
-    height: '0',
-    width: '0',
-    videoId: 'C17gvPx2lX4',
-    playerVars: {
-      'autoplay': 0,
-      'controls': 0,
-      'loop': 1,
-      'playlist': 'C17gvPx2lX4',
-      'showinfo': 0,
-      'rel': 0,
-      'modestbranding': 1
-    },
-    events: {
-      'onReady': (event) => {
-        event.target.setVolume(50);
-      },
-      'onStateChange': (event) => {
-        if (event.data === YT.PlayerState.PLAYING) {
-          isPlaying = true;
-          musicBtn.classList.add('playing');
-          iconSound.style.display = 'block';
-          iconMute.style.display = 'none';
-        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-          isPlaying = false;
-          musicBtn.classList.remove('playing');
-          iconSound.style.display = 'none';
-          iconMute.style.display = 'block';
-        }
-      }
-    }
-  });
+// Функция обновления иконок и анимации кнопки
+function updateMusicUI(isPlaying) {
+  if (isPlaying) {
+    musicBtn.classList.add('playing');
+    iconSound.style.display = 'block';
+    iconMute.style.display = 'none';
+  } else {
+    musicBtn.classList.remove('playing');
+    iconSound.style.display = 'none';
+    iconMute.style.display = 'block';
+  }
 }
 
+// Отслеживаем события воспроизведения и паузы самого аудио
+bgMusic.addEventListener('play', () => updateMusicUI(true));
+bgMusic.addEventListener('pause', () => updateMusicUI(false));
+
+// Кнопка включения/выключения
 musicBtn.addEventListener('click', () => {
-  if (player && typeof player.playVideo === 'function') {
-    if (isPlaying) {
-      player.pauseVideo();
-    } else {
-      player.playVideo();
-    }
+  if (bgMusic.paused) {
+    bgMusic.play().catch(e => console.log("Ошибка воспроизведения:", e));
+  } else {
+    bgMusic.pause();
   }
 });
 
@@ -636,9 +610,8 @@ musicBtn.addEventListener('click', () => {
 const cover = document.getElementById('cover');
 cover.addEventListener('click', () => {
   cover.classList.add('hidden');
-  if (player && typeof player.playVideo === 'function') {
-    player.playVideo();
-  }
+  // Запускаем музыку после клика (браузеры разрешают это)
+  bgMusic.play().catch(e => console.log("Ошибка воспроизведения:", e));
 });
 
 // === Таймер ===
