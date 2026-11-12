@@ -46,7 +46,7 @@ img{max-width:100%;display:block}
 section{padding:100px 24px;text-align:center}
 .container{max-width:880px;margin:0 auto}
 
-/* === ЗАГОЛОВКИ — Felidae (Ещё толще) === */
+/* === ЗАГОЛОВКИ — Felidae === */
 h1, h2, h3,
 .hero-title,
 .date-big,
@@ -56,7 +56,7 @@ h1, h2, h3,
 .place-card h3 {
   font-family: var(--serif);
   font-weight: 400;
-  -webkit-text-stroke: 0.7px currentColor; /* Ещё толще */
+  -webkit-text-stroke: 0.7px currentColor;
 }
 h2{
   font-size:clamp(30px,5.5vw,46px);
@@ -75,11 +75,11 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ ---------- */
+/* ---------- ПОЛОСОЧКИ (Исправлены отступы) ---------- */
 .section-title {
   position: relative;
   display: inline-block;
-  padding: 12px 0;
+  padding: 4px 0; /* Уменьшили padding, чтобы линии были ближе к тексту */
 }
 .section-title::before,
 .section-title::after {
@@ -90,7 +90,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   width: 40%;
 }
 .section-title::before { top: 0; left: 0; }
-.section-title::after { bottom: 0; right: 0; }
+.section-title::after { bottom: 0; right: 0; } /* Теперь нижняя линия так же близко, как верхняя */
 
 /* ---------- COVER ---------- */
 .cover{
@@ -269,7 +269,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   100% { transform: scale(1); }
 }
 
-/* ---------- PLACE (Уменьшен отступ снизу) ---------- */
+/* ---------- PLACE ---------- */
 .place{background:var(--white); padding-bottom: 40px;}
 .map-frame{
   width:100%;max-width:720px;height:360px;border:0;
@@ -284,11 +284,18 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .btn:hover{background:transparent;color:var(--black)}
 
-/* ---------- PROGRAM (Уменьшены отступы) ---------- */
+/* ---------- PROGRAM (Уменьшено расстояние между временем и заголовком) ---------- */
 .program{background:var(--white); padding-top: 40px;}
-.p-item{max-width:500px;margin:20px auto 0} /* Было 48px */
+.p-item{max-width:500px;margin:20px auto 0} /* Отступ между блоками программы */
 .p-item .time{font-size:30px;font-weight:400; -webkit-text-stroke: 0.7px currentColor; letter-spacing:.1em}
-.p-item h3{font-family:var(--serif);font-size:24px;font-weight:400; -webkit-text-stroke: 0.7px currentColor; margin:4px 0 10px;letter-spacing:.06em} /* Было 8px */
+.p-item h3{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:400; 
+  -webkit-text-stroke: 0.7px currentColor; 
+  margin: -5px 0 10px; /* Отрицательный отступ сверху, чтобы прижать к времени */
+  letter-spacing:.06em
+}
 .p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
 .p-icon{
   width:80px;height:80px;border:1px solid var(--black);border-radius:50%;
@@ -297,12 +304,12 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 }
 .p-icon svg{width:32px;height:32px}
 
-/* ---------- PHOTO BLOCKS (Убраны зазоры) ---------- */
+/* ---------- PHOTO BLOCKS ---------- */
 .photo-block{padding:0; margin:0; overflow:hidden; background:var(--line); line-height: 0;}
 .photo-block img{width:100%; height:auto; display:block; object-fit:cover;}
 
-/* ---------- DRESS CODE (Уменьшены отступы) ---------- */
-.dc-section { padding: 40px 24px; } /* Уменьшен padding */
+/* ---------- DRESS CODE ---------- */
+.dc-section { padding: 40px 24px; }
 .dc-frame{
   max-width:660px; margin:0 auto; border:1px solid var(--black);
   padding:50px 36px; background:var(--white);
@@ -421,10 +428,8 @@ footer .f-names{
   </svg>
 </div>
 
-<!-- Основной скрытый YouTube плеер (управление) -->
+<!-- Скрытый YouTube плеер -->
 <div id="youtube-player" style="display:none;"></div>
-<!-- Скрытый плеер-дубль для обхода блокировки автоплея на мобильных -->
-<iframe id="yt-trigger" style="display:none; width:0; height:0;" allow="autoplay"></iframe>
 
 <!-- Обложка -->
 <div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
@@ -455,7 +460,7 @@ footer .f-names{
   <div class="container">
     <h2><span class="section-title">Дорогие гости!</span></h2>
     <div class="invite-text">
-      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни.<br>Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
+      <p>Мы приглашаем Вас стать частью одного из самых важных дней нашей жизни. Давайте вместе разделим нашу радость, любовь и самые тёплые эмоции.</p>
     </div>
     <p class="date-big">18 декабря 2026 года</p>
     <div class="calendar">
@@ -553,12 +558,12 @@ footer .f-names{
 </footer>
 
 <script>
+// === Музыка (YouTube API) ===
 const musicBtn = document.getElementById('musicBtn');
 const iconSound = document.getElementById('iconSound');
 const iconMute = document.getElementById('iconMute');
 let player;
 let isPlaying = false;
-const VIDEO_ID = 'C17gvPx2lX4';
 
 // Загрузка API YouTube
 const tag = document.createElement('script');
@@ -570,12 +575,12 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('youtube-player', {
     height: '0',
     width: '0',
-    videoId: VIDEO_ID,
+    videoId: 'C17gvPx2lX4',
     playerVars: {
       'autoplay': 0,
       'controls': 0,
       'loop': 1,
-      'playlist': VIDEO_ID,
+      'playlist': 'C17gvPx2lX4',
       'showinfo': 0,
       'rel': 0,
       'modestbranding': 1
@@ -615,16 +620,10 @@ musicBtn.addEventListener('click', () => {
 const cover = document.getElementById('cover');
 cover.addEventListener('click', () => {
   cover.classList.add('hidden');
-  
-  // 1. Запускаем основной плеер
+  // Запуск музыки после действия пользователя
   if (player && typeof player.playVideo === 'function') {
     player.playVideo();
   }
-
-  // 2. Хак для мобильных браузеров (iOS/Android), которые режут автоплей API
-  // Создаем невидимый iframe с autoplay прямо в момент клика
-  const trigger = document.getElementById('yt-trigger');
-  trigger.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${VIDEO_ID}&playsinline=1`;
 });
 
 // === Таймер ===
