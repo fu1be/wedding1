@@ -52,7 +52,6 @@ h1, h2, h3,
 .date-big,
 .f-title,
 .cal-head,
-.p-item .time,
 .place-card h3 {
   font-family: var(--serif);
   font-weight: 400;
@@ -75,11 +74,11 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ (Симметрично и короче) ---------- */
+/* ---------- ПОЛОСОЧКИ ДЛЯ ЗАГОЛОВКОВ ---------- */
 .section-title {
   position: relative;
   display: inline-block;
-  padding: 6px 0; /* Увеличили отступ от текста для симметрии */
+  padding: 6px 0; 
 }
 .section-title::before,
 .section-title::after {
@@ -87,16 +86,10 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   position: absolute;
   height: 1px;
   background-color: var(--black);
-  width: 30%; /* Сделали короче (было 40%) */
+  width: 30%; 
 }
-.section-title::before { 
-  top: -2px; /* Подняли верхнюю полосочку чуть выше текста */
-  left: 0; 
-}
-.section-title::after { 
-  bottom: -2px; /* Нижняя на том же расстоянии */
-  right: 0; 
-}
+.section-title::before { top: -2px; left: 0; }
+.section-title::after { bottom: -2px; right: 0; }
 
 /* ---------- COVER ---------- */
 .cover{
@@ -186,7 +179,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 .hero-title{
   font-family:var(--serif);
   font-weight:400;
-  -webkit-text-stroke: 0.8px currentColor;
+  -webkit-text-stroke: 0.7px currentColor;
   font-size:clamp(38px,9vw,86px);
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -196,6 +189,14 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   text-shadow: 0 2px 24px rgba(0,0,0,.7), 0 4px 60px rgba(0,0,0,.4);
   opacity:0;
   animation:fadeUp 1.2s ease .75s forwards;
+}
+
+/* Делаем амперсанд тоньше */
+.hero-title .amp {
+  -webkit-text-stroke: 0;
+  font-weight: 300;
+  font-family: var(--sans); /* Если нужно, чтобы он был совсем тонким. Если оставить Felidae, тоже будет тоньше */
+  font-size: 0.8em; /* Немного уменьшаем его */
 }
 
 .timer{
@@ -293,13 +294,24 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
 /* ---------- PROGRAM ---------- */
 .program{background:var(--white); padding-top: 40px;}
 .p-item{max-width:500px;margin:20px auto 0}
-.p-item .time{font-size:30px;font-weight:400; -webkit-text-stroke: 0.7px currentColor; letter-spacing:.1em}
+
+/* Время теперь как обычный текст */
+.p-item .time{
+  font-size: 15px; 
+  font-family: var(--sans);
+  font-weight: 400; 
+  letter-spacing: .05em;
+  color: #4d4d4d;
+  margin-bottom: 0px;
+}
+
+/* Прижимаем заголовок к времени */
 .p-item h3{
   font-family:var(--serif);
   font-size:24px;
   font-weight:400; 
   -webkit-text-stroke: 0.7px currentColor; 
-  margin: -5px 0 10px; /* Уменьшено расстояние до времени */
+  margin: -2px 0 10px; 
   letter-spacing:.06em
 }
 .p-item p{font-family:var(--sans);color:#4d4d4d;font-size:15px;line-height:1.7}
@@ -413,7 +425,7 @@ footer .f-names{
   .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
   .music-btn svg { width: 24px; height: 24px; }
   
-  .section-title::before, .section-title::after { width: 25%; } /* На мобильных тоже покороче */
+  .section-title::before, .section-title::after { width: 25%; } 
 }
 </style>
 <base target="_blank">
@@ -450,7 +462,7 @@ footer .f-names{
 <!-- Главный экран -->
 <header class="hero">
   <div class="hero-center">
-    <h1 class="hero-title">Ваагн & Кристина</h1>
+    <h1 class="hero-title">Ваагн <span class="amp">&</span> Кристина</h1>
   </div>
 
   <div class="timer">
@@ -559,7 +571,7 @@ footer .f-names{
 <footer>
   <div class="ph-hero">
     <div class="f-title">Будем рады<br>видеть вас!</div>
-    <div class="f-names">Ваагн & Кристина</div>
+    <div class="f-names">Ваагн <span class="amp" style="-webkit-text-stroke:0; font-weight:300; font-family:var(--sans); font-size:0.8em;">&</span> Кристина</div>
   </div>
 </footer>
 
@@ -626,7 +638,6 @@ musicBtn.addEventListener('click', () => {
 const cover = document.getElementById('cover');
 cover.addEventListener('click', () => {
   cover.classList.add('hidden');
-  // Запуск музыки после действия пользователя
   if (player && typeof player.playVideo === 'function') {
     player.playVideo();
   }
