@@ -81,7 +81,7 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   font-size:16px;line-height:1.75;letter-spacing:.02em;
 }
 
-/* ---------- COVER ---------- */
+/* ---------- COVER (обновлённый) ---------- */
 .cover{
   position:fixed;inset:0;z-index:100;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
@@ -89,16 +89,15 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   cursor:pointer;
   transition:opacity .9s ease,visibility .9s;
   overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(15,10,7,.88) 0%, rgba(20,14,10,.82) 50%, rgba(10,7,5,.95) 100%),
-    url('images/IMG_3516.PNG') center/cover no-repeat,
-    #1a120b;
+  /* Красивый коричневый градиент вместо фото */
+  background: linear-gradient(135deg, #2c1e14 0%, #4a3423 40%, #1f150e 100%);
 }
 .cover::before{
   content:"";
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse at center, transparent 0%, rgba(8,5,3,.55) 70%, rgba(5,3,2,.95) 100%);
+    radial-gradient(ellipse at 30% 40%, rgba(180, 140, 90, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(120, 80, 40, 0.2) 0%, transparent 60%);
   pointer-events:none;
   z-index:0;
 }
@@ -106,34 +105,36 @@ footer p,.cover p,.hero-subtitle{font-family:var(--sans)}
   content:"";
   position:absolute;inset:0;
   background-image:
-    radial-gradient(circle, rgba(212,180,131,.12) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity:.5;
+    radial-gradient(circle, rgba(212,180,131,.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity:.6;
   pointer-events:none;
   z-index:0;
 }
 .cover.hidden{opacity:0;visibility:hidden}
 
+/* Шрифт обложки — как у обычного текста (Montserrat) */
 .cover p{
   position:relative;z-index:2;
   color:#efe9df;
+  font-family: var(--sans);
   font-size:14px;
-  letter-spacing:.2em;
-  line-height:2;
+  letter-spacing:.25em;
+  line-height:2.2;
   text-transform:uppercase;
   font-weight:400;
   text-align:center;
-  text-shadow:0 2px 14px rgba(0,0,0,.7);
+  text-shadow:0 2px 14px rgba(0,0,0,.5);
 }
 
 .logo-wrap{
   position:relative;z-index:2;
   width:150px;height:150px;
-  background:#1c1410;
+  background:rgba(28,20,16,.6);
   border:1px solid rgba(255,255,255,.14);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 12px 40px rgba(0,0,0,.5);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
   animation:pulse 2.6s ease-in-out infinite;
 }
 @keyframes pulse{
@@ -429,7 +430,7 @@ footer .f-logo{
   .cover{gap:44px}
   .logo-wrap{width:120px;height:120px}
   .logo-wrap img{width:80px;height:80px}
-  .cover p{font-size:12px;letter-spacing:.18em}
+  .cover p{font-size:12px;letter-spacing:.2em}
   
   .music-btn { width: 50px; height: 50px; top: 15px; right: 15px; }
   .music-btn svg { width: 24px; height: 24px; }
@@ -441,12 +442,12 @@ footer .f-logo{
 
 <!-- Музыкальная кнопка -->
 <div class="music-btn" id="musicBtn" title="Включить/выключить музыку">
-  <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
   </svg>
-  <svg id="iconMute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+  <svg id="iconMute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
     <line x1="23" y1="9" x2="17" y2="15"></line>
     <line x1="17" y1="9" x2="23" y2="15"></line>
@@ -456,7 +457,7 @@ footer .f-logo{
 <!-- Скрытый YouTube плеер -->
 <div id="youtube-player" style="display:none;"></div>
 
-<!-- Обложка -->
+<!-- Обложка (без фото, коричневый фон, шрифт Montserrat) -->
 <div class="cover" id="cover" role="button" aria-label="Открыть приглашение">
   <p>Нажмите, чтобы открыть<br>приглашение</p>
   <div class="logo-wrap">
@@ -533,9 +534,11 @@ footer .f-logo{
   <div class="container">
     <h2><span class="h-decor">Место проведения</span></h2>
     <p class="sub">Наш праздник пройдёт в ресторане Mar house<br>по адресу: Косинское ш., 31А, Балашиха</p>
+    <!-- Карта указывает на Mar House (координаты из ссылки) -->
     <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.865%2C55.795&z=15&pt=37.865%2C55.795%2Cpm2rdm" loading="lazy" allowfullscreen></iframe>
     <div class="place-card">
-      <a class="btn" href="https://yandex.ru/maps/?rtext=~55.795%2C37.865" target="_blank" rel="noopener">Построить маршрут</a>
+      <!-- Маршрут ведёт на организацию Mar House -->
+      <a class="btn" href="https://yandex.com/maps/org/mar_khaus/226330050771?si=j78a1e1z916rdb0nytd97x8ham" target="_blank" rel="noopener">Построить маршрут</a>
     </div>
   </div>
 </section>
@@ -609,6 +612,8 @@ function onYouTubeIframeAPIReady() {
     events: {
       'onReady': (event) => {
         event.target.setVolume(50);
+        // Пытаемся включить музыку сразу (может не сработать до клика)
+        // Включаем при клике на обложку
       },
       'onStateChange': (event) => {
         if (event.data === YT.PlayerState.PLAYING) {
@@ -637,9 +642,15 @@ musicBtn.addEventListener('click', () => {
   }
 });
 
-// === Обложка ===
+// === Обложка: клик открывает приглашение и запускает музыку ===
 const cover = document.getElementById('cover');
-cover.addEventListener('click', () => cover.classList.add('hidden'));
+cover.addEventListener('click', () => {
+  cover.classList.add('hidden');
+  // Запуск музыки после действия пользователя
+  if (player && typeof player.playVideo === 'function') {
+    player.playVideo();
+  }
+});
 
 // === Таймер ===
 const target = new Date('2026-12-18T17:00:00+03:00').getTime();
